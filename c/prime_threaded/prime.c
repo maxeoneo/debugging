@@ -35,7 +35,7 @@ void crossout(int k)
   int i;
 
   for (i = k; i*k <= n; i++) {
-    prime[i+k] = 0;
+    prime[i*k] = 0;
   }
 }
 
@@ -92,7 +92,10 @@ int main(int argc, char **argv)
   // report results
   nprimes = 0;
   for (i = 2; i <= n; i++)
-    if (prime[i]) nprimes++;
+    if (prime[i]) {
+      nprimes++;
+      printf("prime: %d\n", i);
+    }
   printf("the number of primes found was %d\n", nprimes);
 }
 
